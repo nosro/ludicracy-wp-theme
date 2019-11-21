@@ -7,6 +7,11 @@
  * @package Orson
  */
 
+/**
+ * Site constants.
+ */
+require get_template_directory() . '/inc/constants.php';
+
 if ( ! function_exists( 'orson_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
@@ -122,11 +127,28 @@ add_action( 'widgets_init', 'orson_widgets_init' );
 function orson_scripts() {
 	wp_enqueue_style( 'orson-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'orson-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20191120', true );
+	wp_register_style( 'site', get_template_directory_uri() . '/assets/css/site.bundle.css', [], ORSON_THEME_VER );
+	wp_enqueue_style( 'site' );
 
-	wp_enqueue_script( 'orson-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20191120', true );
+	wp_register_script( 'site', get_template_directory_uri() . '/assets/js/site.bundle.js', [], ORSON_THEME_VER, true );
+	wp_enqueue_script( 'site' );
 }
 add_action( 'wp_enqueue_scripts', 'orson_scripts' );
+
+/**
+ * Enqueue admin scripts.
+ */
+function orson_admin_scripts() {
+	wp_register_script( 'admin', get_template_directory_uri() . '/assets/js/admin.bundle.js', [], ORSON_THEME_VER, true );
+	wp_localize_script( 'admin', 'adminAjax',
+		array(
+			'ajax_url' => admin_url( 'admin-ajax.php' ),
+			'nonce'    => wp_create_nonce( 'ajax-nonce' ),
+		)
+	);
+	wp_enqueue_script( 'admin' );
+}
+add_action( 'admin_enqueue_scripts', 'orson_admin_scripts' );
 
 /**
  * Implement the Custom Header feature.
