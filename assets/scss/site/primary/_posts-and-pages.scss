@@ -2,8 +2,13 @@
 	display: block;
 }
 
+.post,
 .page {
-	margin: 0 0 1.5em;
+	margin: 0 0 #{$gutter};
+}
+
+.post {
+  position: relative;
 }
 
 .updated:not(.published) {
@@ -25,4 +30,40 @@
 .content-area {
   margin: 0 auto;
   max-width: $content-max-width;
+  width: 95%;
+}
+
+.entry-content-wrapper {
+  @include breakpoint(m) {
+    float: left;
+  }
+
+  @include breakpoint(l) {
+    max-width: #{map-get($columns, 3) * 1};
+  }
+}
+
+.entry-thumbnail-wrapper {
+  @include breakpoint(m) {
+    float: left;
+    margin: 0 #{$gutter} 0 0;
+  }
+
+  @include breakpoint(l) {
+    max-width: #{map-get($columns, 3) * 2};
+  }
+}
+
+.entry-thumbnail {
+  margin: 0;
+}
+
+.entry-title {
+  margin: 0;
+}
+
+.entry-content {
+  *:first-child {
+    margin: 0 0 0 0;
+  }
 }

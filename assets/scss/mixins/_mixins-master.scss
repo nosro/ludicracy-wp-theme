@@ -62,12 +62,6 @@ $breakpoints: (
     @if map-has-key($breakpoints, $from-breakpoint) {
       $start: map-get($breakpoints, $from-breakpoint );
       // if not, check if rem or em and set breakpoint to that value
-    } @else if is-emrem($from-breakpoint) {
-      $start: $from-breakpoint;
-      // if not em or rem, check if px and set breakpoint in ems
-    } @else if is-px($from-breakpoint) {
-      $start: em-calc($from-breakpoint, true);
-      // else throw an error
     } @else {
       @error "The value you entered for breakpoint should be from $breakpoints map, or a px, em, or rem value. You entered #{$from-breakpoint}.";
     }
@@ -77,13 +71,7 @@ $breakpoints: (
   @if ( $to-breakpoint != false ) {
     // check if the breakpoint is from config or not
     @if map-has-key($breakpoints, $to-breakpoint) {
-      $end: map-get($breakpoints, $to-breakpoint) - em-calc(1);
-    } @else if is-emrem($to-breakpoint) {
-      // if not, check if rem or em and set breakpoint to that value
-      $end: $to-breakpoint - em-calc(1);
-    } @else if is-px($to-breakpoint) {
-      // if not em or rem, check if px and set breakpoint in ems
-      $end: em-calc($to-breakpoint - 1);
+      $end: map-get($breakpoints, $to-breakpoint) - 1;
     } @else {
       // else throw an error
       @error "The value you entered for breakpoint should be from $breakpoints map, or a px, em, or rem value. You entered #{$from-breakpoint}.";
