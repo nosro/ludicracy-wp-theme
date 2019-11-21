@@ -2,7 +2,6 @@
 	display: block;
 }
 
-.post,
 .page {
 	margin: 0 0 1.5em;
 }
@@ -20,4 +19,10 @@
 .page-links {
 	clear: both;
 	margin: 0 0 1.5em;
+}
+
+.wrap,
+.content-area {
+  margin: 0 auto;
+  max-width: $content-max-width;
 }
