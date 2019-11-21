@@ -7,6 +7,9 @@ const path          = require('path');
 const autoprefixer  = require('autoprefixer');
 const ip            = require('ip').address();
 
+// recognizes certain classes of webpack errors and cleans, aggregates and prioritizes them to provide a better Developer Experience
+const FriendlyErrorsWebpackPlugin  = require('friendly-errors-webpack-plugin');
+
 // Theme namespace
 const themename = path.join(__dirname, '../../').match(/([^/]*)\/*$/)[1];
 
@@ -53,11 +56,6 @@ module.exports = {
     }),
 
     new FriendlyErrorsWebpackPlugin(),
-    // fully interactive data visualization of our build
-    new BundleAnalyzerPlugin({
-     analyzerMode: 'static'
-    }),
-
   ],
 
   module: {

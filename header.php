@@ -25,7 +25,7 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'orson' ); ?></a>
 
 	<header id="masthead" class="site-header">
-		<div class="site-branding">
+		<div class="site-branding wrap">
 			<?php
 			the_custom_logo();
 			if ( is_front_page() && is_home() ) :
@@ -44,7 +44,7 @@
 			<?php endif; ?>
 		</div><!-- .site-branding -->
 
-		<nav id="site-navigation" class="main-navigation">
+		<nav id="site-navigation" class="main-navigation wrap">
 			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'orson' ); ?></button>
 			<?php
 			wp_nav_menu( array(

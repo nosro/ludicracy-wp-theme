@@ -125,12 +125,19 @@ add_action( 'widgets_init', 'orson_widgets_init' );
  * Enqueue scripts and styles.
  */
 function orson_scripts() {
+	// Append "hot" param to force HMR.
+	if ( $_GET['hot'] ) {
+		$path = '//127.0.0.1:3000';
+	} else {
+		$path = get_template_directory_uri();
+	}
+
 	wp_enqueue_style( 'orson-style', get_stylesheet_uri() );
 
-	wp_register_style( 'site', get_template_directory_uri() . '/assets/css/site.bundle.css', [], ORSON_THEME_VER );
+	wp_register_style( 'site', $path . '/assets/css/site.bundle.css', [], ORSON_THEME_VER );
 	wp_enqueue_style( 'site' );
 
-	wp_register_script( 'site', get_template_directory_uri() . '/assets/js/site.bundle.js', [], ORSON_THEME_VER, true );
+	wp_register_script( 'site', $path . '/assets/js/site.bundle.js', [], ORSON_THEME_VER, true );
 	wp_enqueue_script( 'site' );
 }
 add_action( 'wp_enqueue_scripts', 'orson_scripts' );
