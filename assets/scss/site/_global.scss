@@ -33,11 +33,16 @@
 }
 
 .site-content {
-  margin: #{$gutter} 0 0 0;
+  margin: 0;
+}
+
+.site-main {
+  padding: $gutter;
 }
 
 .site-branding {
   position: relative;
+  height: #{$spacer * 12};
   text-align: center;
 
   @include breakpoint(m) {

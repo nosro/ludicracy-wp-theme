@@ -30,7 +30,12 @@
 .content-area {
   margin: 0 auto;
   max-width: $content-max-width;
-  width: 95%;
+}
+
+.content-area {
+  border-color: $light-gray;
+  border-style: solid;
+  border-width: 0 2px 2px;
 }
 
 .entry-content-wrapper {
