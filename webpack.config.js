@@ -17,7 +17,6 @@ let entry = {};
 for (const e of config.entry) entry[e] = `./${config.assets}/js/${e}.js`;
 
 module.exports = {
-
   mode: 'development',
 
   // devtool: 'cheap-module-eval-source-map', // fastest, otherwise 'inline-source-map'

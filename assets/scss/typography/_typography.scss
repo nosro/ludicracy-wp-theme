@@ -8,6 +8,7 @@ textarea {
 	font-family: $font__main;
 	@include font-size(14/16);
 	line-height: $font__line-height-body;
+  text-rendering: optimizeLegibility;
 }
 
 @import "headings";

@@ -1,0 +1,79 @@
+.site-header {
+  background-color: $light-blue;
+  color: $white;
+
+  a {
+    color: $white;
+    text-decoration: none;
+
+    &:visited {
+      color: $white;
+    }
+    &:hover,
+    &:focus,
+    &:active {
+      color: $yellow;
+    }
+  }
+}
+
+.site-title {
+  display: none;
+  @include font-size(18/16);
+
+  @include breakpoint(m) {
+    display: inline-block;
+    margin: $gutter;
+    vertical-align: middle;
+  }
+}
+
+.site-description {
+  display: none;
+}
+
+.site-content {
+  margin: #{$gutter} 0 0 0;
+}
+
+.site-branding {
+  position: relative;
+  text-align: center;
+
+  @include breakpoint(m) {
+    text-align: left;
+  }
+}
+
+.site-logo {
+  display: block;
+  margin: 0;
+
+  // Half of the Logo SVG dimensions.
+  height: 33px;
+  width: 100%;
+
+  text-align: center;
+
+  @include breakpoint(m) {
+    float: left;
+    margin: 0 #{$gutter} 0 0;
+    width: 43px;
+  }
+
+  svg {
+    transform: scale(0.5) translate(0,-25%);
+  }
+
+  svg g {
+    fill: $white;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    svg g {
+      fill: $yellow;
+    }
+  }
+}

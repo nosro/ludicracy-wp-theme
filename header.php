@@ -26,8 +26,12 @@
 
 	<header id="masthead" class="site-header">
 		<div class="site-branding wrap">
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="site-logo" rel="home">
+				<?php
+					get_template_part('template-parts/svg/logo.svg');
+				?>
+			</a>
 			<?php
-			the_custom_logo();
 			if ( is_front_page() && is_home() ) :
 				?>
 				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>

@@ -8,7 +8,7 @@
 }
 
 .post {
-  position: relative;
+  @include clearfix;
 }
 
 .updated:not(.published) {
@@ -36,6 +36,7 @@
 .entry-content-wrapper {
   @include breakpoint(m) {
     float: left;
+    max-width: #{map-get($columns, 3) * 2};
   }
 
   @include breakpoint(l) {
@@ -65,5 +66,22 @@
 .entry-content {
   *:first-child {
     margin: 0 0 0 0;
+  }
+}
+
+.more-link {
+  display: inline-block;
+  margin: #{$gutter} 0 0 0;
+  padding: 0 #{$gutter} 0 0;
+
+  &::after {
+    content: '';
+    display: inline-block;
+    // background-image: url('./../images/cheveron-right.svg');
+    background-image: svg-load('./../images/cheveron-right.svg', fill=#{$orange});
+    background-position: center left;
+    height: 1rem;
+    width: 1rem;
+    vertical-align: middle;
   }
 }

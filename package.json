@@ -49,6 +49,7 @@
     "not dead"
   ],
   "dependencies": {
+    "postcss-inline-svg": "^4.1.0",
     "webfontloader": "^1.6.28"
   }
 }
