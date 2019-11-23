@@ -127,7 +127,7 @@ add_action( 'widgets_init', 'orson_widgets_init' );
 function orson_scripts() {
 	// Append "hot" param to force HMR.
 	if (
-		$_GET['hot'] // WPCS: input var ok, CSRF ok.
+		isset( $_GET['hot'] ) // WPCS: input var ok, CSRF ok.
 	) {
 		$path = '//127.0.0.1:3000';
 	} else {

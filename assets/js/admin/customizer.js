@@ -7,10 +7,11 @@
  */
 
 ( function( $ ) {
-	// Site title and description. Not really accessible in this layout!
-	wp.customize( 'blogname', function( value ) {
-		value.bind( function( to ) {
-			$( '.site-title a' ).text( to );
-		} );
-	} );
+  if (wp.customize) {
+    wp.customize( 'blogname', function( value ) {
+      value.bind( function( to ) {
+        $( '.site-title a' ).text( to );
+      } );
+    } );
+  }
 } )( jQuery );
