@@ -5,9 +5,12 @@
 	width: 100%;
 	position: relative;
 	background-color: $blue;
-	border-color: $white;
-	border-style: solid;
-	border-width: 2px 2px 0;
+
+	@include breakpoint(m) {
+		border-color: $white;
+		border-style: solid;
+		border-width: 2px 2px 0;
+	}
 
 	.nav-menu {
 		/* mobile menu */
@@ -42,6 +45,11 @@
 
 		.menu-item {
 			float: none;
+			border-bottom: 1px solid $light-blue;
+
+			&:last-child {
+				border-bottom: none;
+			}
 
 			@include breakpoint(m) {
 				float: left;
@@ -127,7 +135,6 @@
 	background-image: svg-load('./../images/menu.svg', fill=#{$white});
 	background-position: 50% 50%;
 	background-repeat: no-repeat;
-	border: none;
 	border-radius: 0;
 	overflow: hidden;
 	height: #{$spacer * 12};
@@ -138,9 +145,17 @@
 		display: none;
 	}
 
+	&,
+	&:active,
+	&:hover,
+	&:focus {
+		border-color: transparent;
+	}
+
 	.toggled & {
 		background-color: $blue;
 		background-image: svg-load('./../images/close.svg', fill=#{$white});
+		border-color: $blue;
 	}
 }
 
