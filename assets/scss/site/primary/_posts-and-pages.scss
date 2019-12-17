@@ -82,7 +82,6 @@
   &::after {
     content: '';
     display: inline-block;
-    // background-image: url('./../images/cheveron-right.svg');
     background-image: svg-load('./../images/cheveron-right.svg', fill=#{$orange});
     background-position: center left;
     height: 1rem;
