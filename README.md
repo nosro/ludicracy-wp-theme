@@ -1,6 +1,3 @@
-About this Theme
-This is a simple WordPress theme which has a webpack build system.
-
 # Theme
 
 This is a simple WordPress theme which has a webpack build system.
